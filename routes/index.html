@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolt Backend</title>
+</head>
+
+<style>
+    body {
+        display: flex;
+        height: 90vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 50px;
+    }
+
+    input {
+        padding: 10px;
+        width: 600px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        align-items: center;
+        border: 1px solid red;
+        gap: 1rem;
+        height: fit-content;
+    }
+
+    #article {
+        min-height: 200px;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 600px;
+    }
+
+    #image {
+        display: flex;
+        align-items: center;
+        border: 5px solid rgb(133, 115, 115);
+        text-decoration: none;
+    }
+
+</style>
+<body>
+    <h1>Create new post</h1>
+    <form action="/user" enctype="multipart/form-data" method="post">
+        <input type="text" name="title" id="title" placeholder="title" required>
+        <input type="text" name="author_name" id="author_name" placeholder="author" required>
+        <input type="file" name="image" id="image" value="" required>
+        <textarea type="text" name="article" id="article" placeholder="article" required> </textarea>
+        <input type="text" name="post_date" id="post_date" placeholder="date" required>
+        <input type="text" name="post_length" id="post_length" placeholder="length" required>
+
+        <button type="submit">SUBMIT HERE</button>
+    </form>
+</body>
+</html>
