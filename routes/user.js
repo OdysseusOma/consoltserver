@@ -3,16 +3,16 @@ const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const Post = require('../model/user')
 
-// route to backend page
-var path = require('path');
-router.get("/admin", async (req, res) => {
-  try {
-      res.sendFile(path.join(__dirname, "index.html"))
+// // route to backend page
+// var path = require('path');
+// router.get("/admin", async (req, res) => {
+//   try {
+//       res.sendFile(path.join(__dirname, "index.html"))
         
-    } catch (err) {
-        console.log(err)
-    }     
-})
+//     } catch (err) {
+//         console.log(err)
+//     }     
+// })
 
 
 
