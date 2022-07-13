@@ -5,29 +5,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consolt Backend</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <style>
     body {
         display: flex;
-        height: 90vh;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 50px;
+        margin: 0;
+        padding: 0;
+        background-color: #DFE3E8;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
     }
 
-    input {
+    .navHead {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #8DB7E3;
+        width: 100%;
+        height: 5rem;
+    }
+
+    .imageBox {
+        height: 2rem;
+    }
+
+    img {
+        height: inherit;
+        padding-left: 2rem;
+    }
+    .webLinkBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .webLink {
+        border: 2px solid blue(102, 147, 165);
+        height: 2rem;
+        font-size: 15px;
+        text-decoration: none;
+        color: white;
+        background-color: #293462;
+        text-align: center;
+        padding: 2px 15px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .formfield {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* .titletext {
+
+    } */
+
+    .formwrap {
+        background-color: white;
+        width: 50rem;
+        margin-bottom: 3rem;
+        padding: 1rem 0;
+        border-radius: 30px;
+    }
+
+    .input {
         padding: 10px;
         width: 600px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        background-color: rgb(235, 233, 236);
+        border-radius: 20px;
+        padding: auto 2rem;
     }
+
+    /* .input::placeholder {
+        font-weight: 300;
+    } */
 
     form {
         display: flex;
         flex-direction: column;
-        width: 70vw;
+        width: inherit;
         align-items: center;
-        border: 1px solid red;
         gap: 1rem;
         height: fit-content;
     }
@@ -38,28 +110,122 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        width: 600px;
     }
 
     #image {
         display: flex;
         align-items: center;
-        border: 5px solid rgb(133, 115, 115);
         text-decoration: none;
+    }
+
+    .btnsubmit {
+        width: 600px;
+        cursor: pointer;
+        background-color: #293462;
+        color: white;
+        padding: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+    }
+
+    .message {
+        width: 600px;
+        display: flex;
+        position: relative;
+        padding-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .message .success {
+        color: green;
+        font-size: 20px;
+        position: absolute;
+        animation: buttons .3s linear;
+        display: none;
+    }
+    .message .failure {
+        color: red;
+        font-size: 20px;
+        position: absolute;
+        transition: .3s;
+        animation: buttons .3s linear;
+        display: none;
+    }
+
+    @keyframes buttons {
+        0% {
+            transform: scale(0.1);
+        }
+        50% {
+            transform: scale(0.5);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 
 </style>
 <body>
-    <h1>Create new post</h1>
-    <form action="/user" enctype="multipart/form-data" method="post">
-        <input type="text" name="title" id="title" placeholder="title" required>
-        <input type="text" name="author_name" id="author_name" placeholder="author" required>
-        <input type="file" name="image" id="image" value="" required>
-        <textarea type="text" name="article" id="article" placeholder="article" required> </textarea>
-        <input type="text" name="post_date" id="post_date" placeholder="date" required>
-        <input type="text" name="post_length" id="post_length" placeholder="length" required>
+    <div class="navHead">
+        <div class="imageBox"><img src="https://res.cloudinary.com/odysseusoma/image/upload/v1657712499/CONSOLT_LOGO_ajrdtu.png" alt=""></div>
+        <div class="webLinkBox"><a class='webLink' href="https://odysseusoma.github.io/consolthq/blog">Go to website</a></div>
+    </div>
+    <div class="formfield">
+        <h1 class="titletext">Create New Post</h1>
+        <div class="formwrap">
+            <!-- action="/user" method="post"-->
+            <form action="/user" method="post" enctype="multipart/form-data">
+                <input type="text" name="title" id="title" placeholder="Title" class="input" required>
+                <input type="text" name="author_name" id="author_name" placeholder="Author" class="input" required>
+                <input type="file" name="image" id="image" value="" class="input" required>
+                <input type="text" name="post_date" id="post_date" placeholder="Date e.g '24th June 1885'" class="input" required>
+                <input type="text" name="post_length" id="post_length" placeholder="Length (How many minutes to read) e.g. 10" class="input" required>
+                <textarea type="text" name="article" id="article" placeholder="article" class="input" required> </textarea>
+        
+                <button type="submit" class="btnsubmit">SUBMIT POST</button>
+                <div class="message">
+                    <div class="success" id="success">Successfully uploaded</div>
+                    <div class="failure" id="failure">Field can't be empty</div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-        <button type="submit">SUBMIT HERE</button>
-    </form>
+    <!-- <script>
+        function message () {
+            var title = document.getElementsByName('title')
+            var author_name = document.getElementsByName('author_name')
+            var image = document.getElementsByName('image')
+            var post_date = document.getElementsByName('post_date')
+            var post_length = document.getElementsByName('post_length')
+            var article = document.getElementsByName('article')
+
+            const success = document.getElementById('success')
+            const failure = document.getElementById('failure')
+
+
+            if (title.value === '' || author_name.value === '' || image.value === '' || post_date.value === '' || post_length.value === '' || article.value === '') {
+                failure.style.display = 'block'
+            } 
+            else {
+                setTimeout(() => {
+                    title.value = '',
+                    author_name = '',
+                    image = '',
+                    post_date = '',
+                    post_length = '',
+                    article = ''
+                }, 2000)
+
+                success.style.display = 'block'
+            }
+
+            setTimeout(() => {
+                failure.style.display = 'none'
+                success.style.display = 'none'
+            },4000)
+        }
+    </script> -->
 </body>
 </html>
