@@ -2,7 +2,8 @@ const router = require("express").Router()
 const cloudinary = require("../utils/cloudinary")
 const upload = require("../utils/multer")
 const Post = require('../model/user')
-
+const SibApiV3Sdk = require('sib-api-v3-sdk')
+require("dotenv").config()
 // route to backend page
 var path = require('path');
 router.get("/admin", async (req, res) => {
@@ -14,6 +15,30 @@ router.get("/admin", async (req, res) => {
     }     
 })
 
+
+// get email from frontend
+router.post('/sendinblue', async(req, res) => {
+    const email = req.body.Email
+    res.send('success')
+    let apikey = process.env.SIB_API_KEY
+
+    // auth + setup
+    let defaultClient = SibApiV3Sdk.ApiClient.instance;
+    let apiKey = defaultClient.authentications['api-key'];
+    apiKey.apiKey = apikey;
+
+    // create contact
+    let apiInstance = new SibApiV3Sdk.ContactsApi();
+    let createContact = new SibApiV3Sdk.CreateContact();
+
+    createContact.email = email
+    createContact.listIds = [2]
+
+    // call SIB api
+    apiInstance.createContact(createContact).then(() => {
+      res.send('success');
+      }).catch(error => console.log("something's wrong but your email was sent"))
+})
 
 
 
