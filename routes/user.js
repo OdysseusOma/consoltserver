@@ -19,25 +19,42 @@ router.get("/admin", async (req, res) => {
 // get email from frontend
 router.post('/sendinblue', async(req, res) => {
     const email = req.body.Email
+
     res.send('success')
     let apikey = process.env.SIB_API_KEY
 
-    // auth + setup
+    // // auth + setup
     let defaultClient = SibApiV3Sdk.ApiClient.instance;
     let apiKey = defaultClient.authentications['api-key'];
     apiKey.apiKey = apikey;
 
     // create contact
-    let apiInstance = new SibApiV3Sdk.ContactsApi();
+    var apiInstance = new SibApiV3Sdk.ContactsApi();
     let createContact = new SibApiV3Sdk.CreateContact();
 
     createContact.email = email
     createContact.listIds = [2]
 
-    // call SIB api
-    apiInstance.createContact(createContact).then(() => {
-      res.send('success');
+    // // call SIB api
+    await apiInstance.createContact(createContact).then((data) => {
+      console.log('Email added successfully');
       }).catch(error => console.log("something's wrong but your email was sent"))
+
+
+    // send confirmation email
+    var apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+
+    let templateId = 5; 
+
+    let sendTestEmail = new SibApiV3Sdk.SendTestEmail(); 
+
+    sendTestEmail.emailTo = [email];
+
+    apiInstance.sendTestTemplate(templateId, sendTestEmail).then(function() {
+      console.log('Welcome mail sent.');
+    }, function(error) {
+      console.error(error);
+    });
 })
 
 
