@@ -66,15 +66,30 @@ router.post('/', upload.single('image'), async(req, res) => {
         const result = await cloudinary.uploader.upload(req.file.path)
         // const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         // console.log(date)
+
+        // add date automatically
+        const currentDate = new Date();
+
+        var monthNames = [
+            "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+        ];
+
+        const currentDayOfMonth = currentDate.getDate();
+        const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+        const currentYear = currentDate.getFullYear();
+
+        const dateString = currentDayOfMonth + " " + monthNames[currentMonth] + " " + currentYear;
+        
         
         // Create new user
         let user = new Post({
             title: req.body.title,
             author_name: req.body.author_name,
             article: req.body.article,
-            post_date: req.body.post_date,
             // post_date: date,
+            post_date: dateString,
             post_length: req.body.post_length,
+            // name of field for image is image
             imageURL: result.secure_url,
             cloudinary_id: result.public_id,
         })
