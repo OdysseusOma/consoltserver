@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/style.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>Consolt Backend</title>
+</head>
+<body>
+    <div class="contentBox">
+        <div class="heading">
+            <div class="navHead">
+                <div><img src="https://res.cloudinary.com/odysseusoma/image/upload/v1657712499/CONSOLT_LOGO_ajrdtu.png" alt=""></div>
+                <div><a class='webLink' href="https://tryconsolt.netlify.app/">Go to website</a></div>
+            </div>
+            <div class="headingLeft">
+                <h1>Consolt Backend</h1>
+            </div>
+            <div class="headingRight">
+                <a href="/user/admin">New Post</a>
+            </div>
+        </div>
+        <div class="posts">
+            
+            <% if(user.length<1){%>
+            <p>No posts yet, create a new one</p>
+            <%  } %>
+
+            
+            <% user.forEach(user=>{ %>
+                <div class="majorWrap">
+
+                    <div class="postBox">
+                        <div>
+                            <div>
+                                <h5 class="postTitle"><b> <%= user.title %> </b></h5>
+                            </div>
+                            <hr>
+                            <div class="postDetails1">
+                                <p>Author: <%= user.author_name %> </p>
+                            </div>
+                            <div class="snippetarea">
+                                <p><i><%= user.snippet %> </i></p>
+                            </div>
+                            <div class="postDetails2">
+                                <p><%= user.post_date %> </p>
+                                <p><%= user.post_length %> minutes read</p>  
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <div>
+                                <a href="/user/ejs/<%=user.id %> ">Go to post</a>    
+                            </div>
+                            <div>
+                                <a href="/user/edit/<%=user.id %> ">Edit</a>  
+                            </div>
+                            <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
+                                <button class="delete">Delete</button>    
+                            </form>  
+                        </div>    
+                    </div>
+                </div>
+            <% }) %>
+
+
+        </div>
+    </div>
+</body>
+</html>

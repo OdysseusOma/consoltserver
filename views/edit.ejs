@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consolt Backend</title>
+    <title>Edit Post</title>
     <!-- <link rel="stylesheet" href="./style.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: 'textarea'
+      });
+    </script>
 </head>
 
 <style>
@@ -172,16 +179,26 @@
         <div class="webLinkBox"><a class='webLink' href="https://tryconsolt.netlify.app/">Go to website</a></div>
     </div>
     <div class="formfield">
-        <h1 class="titletext">Create New Post</h1>
+        <h1 class="titletext">Edit Post</h1>
         <div class="formwrap">
-            <!-- action="/user" method="post"-->
-            <form action="/user" method="post" enctype="multipart/form-data">
-                <input type="text" name="title" id="title" placeholder="Title" class="input" required>
-                <input type="text" name="author_name" id="author_name" placeholder="Author" class="input" required>
-                <input type="file" name="image" id="image" value="" class="input" required>
-                <input type="text" name="post_length" id="post_length" placeholder="Length (How many minutes to read) e.g. 10" class="input" required>
-                <textarea type="text" name="article" id="article" placeholder="article" class="input" required> </textarea>
-        
+            
+            <form action="/user/<%= user.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" placeholder="Title" class="input" value="<%= user.title %>" required>
+                
+                <label for="Author">Author</label>
+                <input type="text" name="author_name" id="author_name" placeholder="Author" class="input" value="<%= user.author_name %>" required>
+                
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" class="input">
+                
+                <label for="post_length">Post Length</label>
+                <input type="text" name="post_length" id="post_length" placeholder="Length (How many minutes to read) e.g. 10" class="input" value="<%= user.post_length %>" required>
+                
+                <label for="article">Post Content</label>
+                <textarea type="text" name="article" id="article" placeholder="Article" class="input"><%= user.article %></textarea>
+  
+                <a href="/">Cancel</a>
                 <button type="submit" class="btnsubmit">SUBMIT POST</button>
                 <div class="message">
                     <div class="success" id="success">Successfully uploaded</div>
@@ -190,41 +207,5 @@
             </form>
         </div>
     </div>
-
-    <!-- <script>
-        function message () {
-            var title = document.getElementsByName('title')
-            var author_name = document.getElementsByName('author_name')
-            var image = document.getElementsByName('image')
-            var post_date = document.getElementsByName('post_date')
-            var post_length = document.getElementsByName('post_length')
-            var article = document.getElementsByName('article')
-
-            const success = document.getElementById('success')
-            const failure = document.getElementById('failure')
-
-
-            if (title.value === '' || author_name.value === '' || image.value === '' || post_date.value === '' || post_length.value === '' || article.value === '') {
-                failure.style.display = 'block'
-            } 
-            else {
-                setTimeout(() => {
-                    title.value = '',
-                    author_name = '',
-                    image = '',
-                    post_date = '',
-                    post_length = '',
-                    article = ''
-                }, 2000)
-
-                success.style.display = 'block'
-            }
-
-            setTimeout(() => {
-                failure.style.display = 'none'
-                success.style.display = 'none'
-            },4000)
-        }
-    </script> -->
 </body>
 </html>

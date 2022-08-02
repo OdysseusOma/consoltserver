@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    gap: 2rem;
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: rgb(162, 162, 163);
+    color: rgb(37, 37, 37);
+    padding: 0 0.5rem;
+    overflow: hidden;
+}
+
+.heading>:nth-child(1) {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading>:nth-child(2) {
+    flex: 3;
+    display: flex;
+    padding-left: 30px;
+    align-items: center;
+}
+
+.heading>:nth-child(3) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.heading>:nth-child(3)>a {
+    background-color: #0069b0;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 50px;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    gap: 10px;
+    padding: auto;
+    flex-grow: 1;
+    margin: auto;
+}
+.majorWrap {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.postBox {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: fit-content;
+    position: relative;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.753);
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.postTitle {
+    display: flex;
+    font-size: 20px;
+    height: 60px;
+}
+
+.postDetails {
+    display: flex;
+    width: inherit;
+    align-items: center;
+}
+
+.postDetails1 {
+    display: flex;
+    width: inherit;
+    align-items: center;
+    height: 48px;
+}
+
+.postDetails2 {
+    display: flex;
+    width: inherit;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0 20px 0;
+}
+
+.snippetarea {
+    height: 75px;
+    color: #000000;
+    overflow: hidden;
+}
+
+.buttons {
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttons>:nth-child(1),
+.buttons>:nth-child(2) {
+    width: fit-content;
+    border: 1px solid #0c056e;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    background-color: #0c056e;
+}
+
+.buttons>div>a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons>div:hover {
+    text-decoration: none;
+    background-color: white;
+    box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.767);
+    color: white;
+    cursor: pointer;
+}
+
+.delete {
+    display: flex;
+    border: none;
+    background-color: red;
+    border: 1px solid red;
+    padding: 0.3rem 1rem;
+    color: black;
+    font-size: 15px;
+    border-radius: 20px;
+}
+.delete:hover {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+
+
+
+.navHead {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.imageBox {
+    height: 2rem;
+}
+
+img {
+    height: inherit;
+    padding-left: 2rem;
+}
+
+.webLinkBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.webLink {
+    border: 2px solid blue(102, 147, 165);
+    height: 2rem;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #293462;
+    text-align: center;
+    padding: 2px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}

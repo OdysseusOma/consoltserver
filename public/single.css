@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 3px solid black;
+}
+
+.header>:nth-child(1) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header>:nth-child(2) {
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.titleblock {
+    padding: 0 50px;
+}
+
+.detailsblock {
+    padding: 0 50px;
+    border-bottom: 3px solid black;
+}
+
+.contentblock {
+    padding: 20px 50px 0 50px;
+}
+
+.delete {
+    display: flex;
+    border: none;
+    background-color: red;
+    border: 1px solid red;
+    padding: 0.3rem 1rem;
+    color: black;
+    font-size: 15px;
+}
+
+.delete:hover {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.header>div>a,
+.header>a {
+    text-decoration: none;
+    color: black;
+}
+
+.header>div>a,
+.header>a {
+    text-decoration: none;
+    background-color: #0c056e;
+    color: white;
+    cursor: pointer;
+}
+.header>div>a:hover,
+.header>a:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #0c056e;
+    cursor: pointer;
+}
+
+.header>:nth-child(1)>a,
+.header>:nth-child(2)>a {
+    width: fit-content;
+    border: 1px solid #0c056e;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+}
