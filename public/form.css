@@ -1,0 +1,218 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: #DFE3E8;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navHead {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #8DB7E3;
+    width: 100%;
+    height: 5rem;
+}
+
+.imageBox {
+    height: 2rem;
+}
+
+img {
+    height: inherit;
+    padding-left: 2rem;
+}
+
+.webLinkBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.webLink {
+    border: 2px solid blue(102, 147, 165);
+    height: 2rem;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #293462;
+    text-align: center;
+    padding: 2px 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.formfield {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .titletext {
+
+    } */
+
+.formwrap {
+    background-color: white;
+    width: 50rem;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+    border-radius: 30px;
+}
+
+.input {
+    padding: 10px;
+    width: 600px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background-color: rgb(235, 233, 236);
+    border-radius: 20px;
+    padding: auto 2rem;
+}
+
+/* .input::placeholder {
+        font-weight: 300;
+    } */
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    align-items: center;
+    gap: 1rem;
+    height: fit-content;
+}
+
+#article {
+    min-height: 200px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#image {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btnsubmit {
+    width: 600px;
+    cursor: pointer;
+    background-color: #293462;
+    color: white;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+
+.message {
+    width: 600px;
+    display: flex;
+    position: relative;
+    padding-bottom: 20px;
+    justify-content: center;
+}
+
+.message .success {
+    color: green;
+    font-size: 20px;
+    position: absolute;
+    animation: buttons .3s linear;
+    display: none;
+}
+
+.message .failure {
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    transition: .3s;
+    animation: buttons .3s linear;
+    display: none;
+}
+
+@keyframes buttons {
+    0% {
+        transform: scale(0.1);
+    }
+
+    50% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    html {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .navHead {
+        width: 100vw;
+    }
+
+    .titletext {
+        font-size: 15px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    .formwrap {
+        width: 80vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 95%;
+        margin: auto;
+        padding: auto;
+    }
+    
+    .input {
+        padding: 10px;
+        width: 95%;
+        font-size: 13px;
+        padding: auto 2rem;
+    }
+
+    .btnsubmit{
+        width: 60%;
+        font-size: 12px;
+        padding: 0.5rem;
+    }
+
+    .tox {
+        width: 100%;
+    }
+
+    .webLink {
+        font-size: 10px;
+        padding: 0 0.5rem;
+    }
+
+    .imageimage {
+        transform: scale(0.7);
+        padding: 0;
+    }
+}

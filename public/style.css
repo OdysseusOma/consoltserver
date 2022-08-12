@@ -207,3 +207,61 @@ img {
     display: flex;
     align-items: center;
 }
+
+
+@media only screen and (max-width: 850px) {
+    .heading {
+        display: block;
+        width: 100vw;
+        height: fit-content;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+    .navHead {
+        display: flex;
+        justify-content: space-between;
+    }
+    .imageimage {
+        transform: scale(0.6);
+        padding: 0;
+    }
+
+    .headingLeft {
+        font-size: 10px;
+        font-weight: 200;
+        width: fit-content;
+    }
+    
+    .heading>:nth-child(2) {
+        display: none;
+    }
+
+    .heading>:nth-child(3)>a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+    }
+
+    .webLink {
+        font-size: 10px;
+    }
+
+    .posts {
+        padding: 0 10px;
+    }
+
+    .buttons {
+        font-size: 10px;
+    }
+
+    .delete {
+        font-size: 10px;
+    }
+
+    .postTitle {
+        font-size: 17px;
+        height: 60px;
+    }
+}
